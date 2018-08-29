@@ -1,16 +1,16 @@
 /**
  * This module is used to retrieve a piece of metadata for a running AWS EC2
- * instance. It takes a callback in order to return the data.
+ * instance.
  */
 
 const got = require('got');
 
 /**
  * fetch fetches the given metadata field for the currently running instance
- * and returns that data to done. If there was an error, it is passed to done
- * instead.
+ * and returns a Promise that will resolve to that data.
+ *
  * @param  {String}   field The metadata field to retrieve.
- * @param  {Promise<String>} A promise that resolves to the field data.
+ * @param  {Promise<String>} A Promise that resolves to the field data.
  */
 function fetch(field) {
   // We use the IP address  as it is referenced from the AWS docs:
